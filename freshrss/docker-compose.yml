@@ -1,0 +1,15 @@
+---
+version: "2.1"
+services:
+  freshrss:
+    image: ghcr.io/linuxserver/freshrss
+    container_name: freshrss
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - ./config:/config
+    ports:
+      - 8080:80
+    restart: unless-stopped
