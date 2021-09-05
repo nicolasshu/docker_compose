@@ -1,0 +1,12 @@
+---
+version: "3"
+services:
+  eclipse-mosquitto:
+    image: eclipse-mosquitto
+    container_name: eclipse-mosquitto
+    volumes:
+      - ./config:/mosquitto/config
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+    network_mode: host    
+    restart: always

@@ -1,0 +1,23 @@
+---
+version: '3.3'
+services:
+  komga:
+    image: gotson/komga
+    container_name: komga
+    volumes:
+      - type: bind
+        source: ./config
+        target: /config
+      - type: bind
+        source: /volume1/avatar/Comics
+        target: /data
+      - type: bind
+        source: ./timezone
+        target: /etc/timezone
+        read_only: true
+    ports:
+      - 7777:8080
+    user: "1026:101"
+    #environment:
+    #  - <ENV_VAR>=<extra configuration>
+    restart: unless-stopped

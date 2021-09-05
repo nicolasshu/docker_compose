@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  
+  app:
+    container_name: i-librarian
+    image: cgrima/i-librarian
+    privileged: true
+    ports:
+      - "7645:80"
+    volumes:
+      - ./data:/app/data
+      - /etc/localtime:/etc/localtime:ro
