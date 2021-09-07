@@ -1,0 +1,25 @@
+echo """
+
+
+Perfect! Your NewsBlur instance has been successfully built. Now, remember that it is all being done with the same procedures described in the main repository, but all of the containers are behind a single container (a docker:dind container). In order to finalize the initialization, please enter into the container using one of the following commands:
+ - $ docker exec -it newsblur sh
+ - $ docker exec -it newsblur bash
+ - $ docker exec -it newsblur zsh
+
+And run the following command:
+  $ make nb
+
+just as described in the original repository. 
+
+If you wish to update the containers, simply run a [git pull] on the repository and run [make nb] again to make all of the changes. Please read the original documentation to make modifications on the files in order to access the container.
+
+As of 2021-09-07, you must change 
+- [newsblur_web/docker_local_settings.py] > [NEWSBLUR_URL] and [SESSION_COOKIE_DOMAIN]
+- [config/fixtures/bootstrap.json]
+- [apps/reader/views.py] > [ALLOWED_SUBDOMAINS]
+
+For further documentation, please go to https://github.com/samuelclay/NewsBlur
+
+
+
+"""
