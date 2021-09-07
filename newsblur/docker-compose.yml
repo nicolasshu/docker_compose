@@ -1,0 +1,21 @@
+---
+version: "2"
+services:
+  newsblur:
+    container_name: newsblur
+    build: .
+    image: newsblur:latest
+    ports:
+     - 8080:8000 # Choose the port you want newsblur to be exposed to
+     #- 1936:1936
+     #- 5432:5432
+     #- 8088:8088
+     #- 9200:9200
+     #- 6579:6579
+     #- 29019:29019
+    restart: unless-stopped
+    privileged: true
+    #volumes: 
+    #- ./config:/code
+#volumes:
+#  config:
