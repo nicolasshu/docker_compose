@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  wikijs:
+    image: ghcr.io/linuxserver/wikijs
+    container_name: wikijs
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=America/New_York
+    volumes:
+      - ./config:/config
+      - ./data:/data
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
