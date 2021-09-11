@@ -3,6 +3,7 @@ version: '3.3'
 services:
   fireflyiii:
     image: jc5x/firefly-iii:latest
+    container_name: firefly
     volumes:
       - /volume1/docker/firefly/storage/export:/var/www/firefly-iii/storage/export
       - /volume1/docker/firefly/storage/upload:/var/www/firefly-iii/storage/upload
@@ -13,8 +14,10 @@ services:
       - db
     links:
       - db:db
+    restart: unless-stopped
   db:
     image: yobasystems/alpine-mariadb:latest
+    container_name: firefly_db
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=firefly
@@ -22,8 +25,9 @@ services:
       - MYSQL_DATABASE=firefly
     volumes:
       - db:/var/lib/mysql
-
+    restart: unless-stopped
 volumes:
    firefly_iii_export:
    firefly_iii_upload:
    db:
+
