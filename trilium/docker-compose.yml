@@ -1,0 +1,14 @@
+---
+version: "2.1"
+services:
+  trilium:
+    image: zadam/trilium
+    container_name: trilium
+    environment:
+      - PUID=1026
+      - PGID=100
+    volumes:
+      - ./data:/home/node/trilium-data
+    ports:
+      - 7789:8080
+    restart: unless-stopped
